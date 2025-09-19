@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
     - uses: actions/checkout@v4
       with:
@@ -17,8 +18,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install sphinx>=6.0 sphinx_rtd_theme
     
+    # - name: Build HTML
+    #   uses: ammaraskar/sphinx-action@master
+    #   with:
+    #     build-command: "sphinx-build -b html . build"
+    #     docs-folder: "docs/"
     - name: Build HTML
-      uses: ammaraskar/sphinx-action@master
+      run: |
+        cd docs/
+        sphinx-build -b html . build
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
