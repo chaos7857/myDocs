@@ -150,13 +150,51 @@
 </pre></div>
 </div>
 <dl class="simple">
-<dt>条件构造器（Wraper）::</dt><dd><p>eq() ne() 等，可以实现较为复杂的curd</p>
+<dt>条件构造器（Wraper）</dt><dd><p>eq() ne() 等，可以实现较为复杂的curd</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 查询出名字中带o的，存款大于等于1k元的人的id, username, info, balance
 &gt;&gt;&gt;
+&gt;&gt;&gt; new QueryWrapper&lt;&gt;()
+                        .select(&quot;id&quot;, &quot;username&quot;, &quot;info&quot;, &quot;balance&quot;)
+                        .like(&quot;username&quot;, &quot;o&quot;)
+                        .ge(&quot;balance&quot;, 1000)
+&gt;&gt;&gt; userMapper.selectList(wrapper)
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">更新用户名为jack的用户的余额为2000</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">new</span> <span class="n">User</span><span class="p">()</span>
+<span class="n">user</span><span class="o">.</span><span class="n">setBalance</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+
+<span class="n">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="s2">&quot;jack&quot;</span><span class="p">)</span>
+
+<span class="n">userMapper</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">wrapper</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">更加定制化的</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">idss</span> <span class="o">=</span> <span class="n">List</span><span class="o">.</span><span class="n">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="n">L</span><span class="p">)</span>
+
+<span class="n">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="o">.</span><span class="n">setSql</span><span class="p">(</span><span class="s2">&quot;balance = balance-100&quot;</span><span class="p">)</span>
+                    <span class="o">.</span><span class="ow">in</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">ids</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl>
+<dt>自定义SQL</dt><dd><p>使用mp的wrapper构建where部分，剩下的我们自己写。
+像上边的扣款就是自定义，但是这样就涉及到一个问题，sql语句写进了service里边。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">userMapper</span><span class="o">.</span><span class="n">updateBalanceByIds</span><span class="p">(</span><span class="n">wrapper</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">一定要写这个</span><span class="nd">@Param</span><span class="p">(</span><span class="s2">&quot;ew&quot;</span><span class="p">)</span>
+<span class="n">void</span> <span class="n">updateBalanceByIds</span><span class="p">(</span><span class="nd">@Param</span><span class="p">(</span><span class="s2">&quot;ew&quot;</span><span class="p">)</span> <span class="n">LambdaQW</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">wrapper</span><span class="p">,</span> <span class="nd">@Param</span><span class="p">(</span><span class="s2">&quot;amount&quot;</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">update</span> <span class="nb">id</span><span class="o">=</span> <span class="o">&gt;</span>
+    <span class="n">update</span> <span class="n">tb_</span> <span class="nb">set</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span><span class="o">-</span><span class="mi">100</span> <span class="c1">#{amount} ${ew.customSqlSegment}</span>
+<span class="o">&lt;/</span><span class="n">update</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt>Service接口</dt><dd><p>继承一时爽，一直继承一直爽</p>
+</dd>
+</dl>
 </section>
 <section id="docker">
 <h3>0.3 docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h3>

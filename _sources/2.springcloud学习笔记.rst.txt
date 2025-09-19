@@ -56,16 +56,70 @@
             id-type: ossign_id
             update-strategy: not_null
 
-条件构造器（Wraper）::
+条件构造器（Wraper）
     eq() ne() 等，可以实现较为复杂的curd
 
 >>> 查询出名字中带o的，存款大于等于1k元的人的id, username, info, balance
 >>> 
+>>> new QueryWrapper<>()
+                        .select("id", "username", "info", "balance")
+                        .like("username", "o")
+                        .ge("balance", 1000)
+>>> userMapper.selectList(wrapper)
+
+
+.. code-block::
+
+    // 更新用户名为jack的用户的余额为2000
+    User user = new User()
+    user.setBalance(2000);
+
+    new QueryWrapper<>().eq("username", "jack")
+
+    userMapper.update(user,wrapper)
+
+
+.. code-block::
+
+    // 更加定制化的
+
+    List<Long> idss = List.of(1,2,4L)
+
+    new QueryWrapper<>().setSql("balance = balance-100")
+                        .in("id", ids);
+
+自定义SQL
+    使用mp的wrapper构建where部分，剩下的我们自己写。
+    像上边的扣款就是自定义，但是这样就涉及到一个问题，sql语句写进了service里边。
+
+    .. code-block::
+
+        userMapper.updateBalanceByIds(wrapper, amount);
+        // 一定要写这个@Param("ew")
+        void updateBalanceByIds(@Param("ew") LambdaQW<User> wrapper, @Param("amount") )
+
+        <update id= >
+            update tb_ set balance = balance-100 #{amount} ${ew.customSqlSegment}
+        </update>
+
+
+Service接口
+    继承一时爽，一直继承一直爽
+    
+
+
+
+
+
+
 
 
 
 0.3 docker
 ---------------------
+
+
+
 
 
 0.4 项目部署
