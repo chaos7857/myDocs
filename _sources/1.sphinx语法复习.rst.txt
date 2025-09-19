@@ -1,0 +1,128 @@
+1.sphinx review
+#########################
+.. note::
+
+    太久没有用sphinx了, 先复习一下语法再说
+
+1.1 单文语法
+***********************
+**加粗** 和 *斜体* 和 ``代码`` 是和markdown相同的      
+
+上下标示例：
+
+- H\ :sub:`2`\ O
+- E = mc\ :sup:`2`
+
+.. code-block:: console
+    :caption: 这个的话是代码块
+
+    $ pip install sphinx
+
+.. 四个符号就能变成分隔线，都一样
+====
+
+这样可以直接模拟命令行输出
+
+>>> import os
+>>> os.listdir()
+['shells', 'gorgonzola', 'parsley']
+
+====
+
+来个文段试试::
+
+    通过缩进就可以实现
+
+
+1.2 交叉引用
+***********************
+最大的优点就是能够随意快速的交叉引用，这个可以分为内部和外部
+
+1.2.1 外部引用
+================
+这样就实现了引用外部内容： `Bing bro <https://bing.com/>`_
+
+当然还可以这样引用： `bilibili`_
+
+.. _bilibili: https://bilibili.com/
+
+1.2.2 文档引用
+================
+像这样我可以引用文档： :doc:`这里可以命名<1.sphinx语法复习>`
+
+.. _放置的一个锚点:
+
+我也可以在任何地方放置锚点实现引用： :ref:`锚点<放置的一个锚点>`
+
+1.2.3 图片引用
+================
+.. image:: _static/test.jpg
+
+1.2.4 注脚
+===================
+这里就可以学到一个新的指令 [#f1]_ 了
+
+.. rubric:: 注脚
+
+.. [#f1] 这是一个注脚内容.
+
+----
+
+也可以去掉＃号实现文字标注
+
+简单的将注脚的内容变成文字 [引用]_ ，就可以轻松实现了
+
+.. [引用] 这是引用的内容
+
+1.2.5 函数引用
+================
+我可以先这样定义一个函数：
+
+.. py:function:: lumache.get_random_ingredients(kind=None)
+
+   Return a list of random ingredients as strings.
+
+   :param kind: Optional "kind" of ingredients.
+   :type kind: list[str] or None
+   :return: The ingredients list.
+   :rtype: list[str]
+   :raise lumache.InvalidKindError: If the kind is invalid.
+
+接着只需要这样就能引用这个函数了 :py:func:`function defined <lumache.get_random_ingredients>`
+
+但是这样就遇到了一个问题：我每次都需要将一个函数写两遍才能写入文档
+
+为此就有了 ``sphinx.ext.autodoc`` , 当然, 为了确保文档能够找到对应的代码文件，
+我们需要在配置文件中使用环境变量的方式找到代码文件
+
+.. code-block:: py
+
+    import os
+    import sys
+    sys.path.insert(0, os.path.abspath('../../'))
+
+接着导入autodoc之后就可以用这样的方式实现直接引用代码的内容了
+
+.. autofunction:: utils.BussinessException
+.. autofunction:: utils.dump_json
+.. autofunction:: utils.load_small_json
+
+.. note::
+
+    当然，我这里的load_small_json是使用google分格写的，非常简便，
+    但是记得需要添加 ``sphinx.ext.napoleon`` 扩展才能使用
+
+为了进一步简化流程，我们这边又有了新的扩展，也就是 ``sphinx.ext.autosummary``
+
+..  
+    两个参数的作用分别是：
+    生成的详细文档存放目录
+    递归处理子模块
+.. autosummary::
+   :toctree: generated
+   :recursive:
+
+   utils
+
+接着就可以使用 :doc:`generated/utils` 里的内容了
+

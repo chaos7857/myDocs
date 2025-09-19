@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.sphinx review &mdash; Achao的文档库 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils" href="generated/utils.html" />
+    <link rel="prev" title="Achao的文档库" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Achao的文档库
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1.sphinx review</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 单文语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.2 交叉引用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.2.1 外部引用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.2.2 文档引用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.2.3 图片引用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.2.4 注脚</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.2.5 函数引用</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lumache.get_random_ingredients"><code class="docutils literal notranslate"><span class="pre">lumache.get_random_ingredients()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.BussinessException"><code class="docutils literal notranslate"><span class="pre">BussinessException()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.dump_json"><code class="docutils literal notranslate"><span class="pre">dump_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.load_small_json"><code class="docutils literal notranslate"><span class="pre">load_small_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/utils.html">utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">2.springcloud复习笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grounded%2Bsam.html">grounded+sam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html">3D场景提示的具身模型设想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BD%91%E7%BB%9C.html">网络</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Achao的文档库</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">1.sphinx review</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/1.sphinx语法复习.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sphinx-review">
+<h1>1.sphinx review<a class="headerlink" href="#sphinx-review" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>太久没有用sphinx了, 先复习一下语法再说</p>
+</div>
+<section id="id1">
+<h2>1.1 单文语法<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><strong>加粗</strong> 和 <em>斜体</em> 和 <code class="docutils literal notranslate"><span class="pre">代码</span></code> 是和markdown相同的</p>
+<p>上下标示例：</p>
+<ul class="simple">
+<li><p>H<sub>2</sub>O</p></li>
+<li><p>E = mc<sup>2</sup></p></li>
+</ul>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">这个的话是代码块</span><a class="headerlink" href="#id12" title="Link to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>sphinx
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<p>这样可以直接模拟命令行输出</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<span class="go">[&#39;shells&#39;, &#39;gorgonzola&#39;, &#39;parsley&#39;]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>来个文段试试:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">通过缩进就可以实现</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>1.2 交叉引用<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>最大的优点就是能够随意快速的交叉引用，这个可以分为内部和外部</p>
+<section id="id3">
+<h3>1.2.1 外部引用<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>这样就实现了引用外部内容： <a class="reference external" href="https://bing.com/">Bing bro</a></p>
+<p>当然还可以这样引用： <a class="reference external" href="https://bilibili.com/">bilibili</a></p>
+</section>
+<section id="id4">
+<h3>1.2.2 文档引用<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>像这样我可以引用文档： <a class="reference internal" href="#"><span class="doc">这里可以命名</span></a></p>
+<p id="id5">我也可以在任何地方放置锚点实现引用： <a class="reference internal" href="#id5"><span class="std std-ref">锚点</span></a></p>
+</section>
+<section id="id6">
+<h3>1.2.3 图片引用<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<img alt="_images/test.jpg" src="_images/test.jpg" />
+</section>
+<section id="id7">
+<h3>1.2.4 注脚<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<p>这里就可以学到一个新的指令 <a class="footnote-reference brackets" href="#f1" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> 了</p>
+<p class="rubric">注脚</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">1</a><span class="fn-bracket">]</span></span>
+<p>这是一个注脚内容.</p>
+</aside>
+</aside>
+<hr class="docutils" />
+<p>也可以去掉＃号实现文字标注</p>
+<p>简单的将注脚的内容变成文字 <a class="reference internal" href="#id10" id="id9"><span>[引用]</span></a> ，就可以轻松实现了</p>
+<div role="list" class="citation-list">
+<div class="citation" id="id10" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">引用</a><span class="fn-bracket">]</span></span>
+<p>这是引用的内容</p>
+</div>
+</div>
+</section>
+<section id="id11">
+<h3>1.2.5 函数引用<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<p>我可以先这样定义一个函数：</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lumache.get_random_ingredients">
+<span class="sig-prename descclassname"><span class="pre">lumache.</span></span><span class="sig-name descname"><span class="pre">get_random_ingredients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lumache.get_random_ingredients" title="Link to this definition"></a></dt>
+<dd><p>Return a list of random ingredients as strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kind</strong> (<em>list</em><em>[</em><em>str</em><em>] or </em><em>None</em>) – Optional “kind” of ingredients.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The ingredients list.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>lumache.InvalidKindError</strong> – If the kind is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>接着只需要这样就能引用这个函数了 <a class="reference internal" href="#lumache.get_random_ingredients" title="lumache.get_random_ingredients"><code class="xref py py-func docutils literal notranslate"><span class="pre">function</span> <span class="pre">defined</span></code></a></p>
+<p>但是这样就遇到了一个问题：我每次都需要将一个函数写两遍才能写入文档</p>
+<p>为此就有了 <code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code> , 当然, 为了确保文档能够找到对应的代码文件，
+我们需要在配置文件中使用环境变量的方式找到代码文件</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../../&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>接着导入autodoc之后就可以用这样的方式实现直接引用代码的内容了</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.BussinessException">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">BussinessException</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.BussinessException" title="Link to this definition"></a></dt>
+<dd><p>bussiness exception</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.dump_json">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">dump_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#utils.dump_json" title="Link to this definition"></a></dt>
+<dd><p>将数据以JSON格式写入文件</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>可JSON序列化的对象</em>) – 要写入的JSON数据，可以是字典、列表等可序列化对象</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – 目标文件路径及名称</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>操作是否成功，成功返回True，失败返回False</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – 当写入过程中发生任何错误时捕获异常并打印</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.load_small_json">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">load_small_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.load_small_json" title="Link to this definition"></a></dt>
+<dd><p>从JSON文件加载数据</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>json_name</strong> – JSON文件的路径及名称</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>从JSON文件中加载的数据，通常为字典或列表</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – 当指定的JSON文件不存在时</p></li>
+<li><p><strong>json.JSONDecodeError</strong> – 当文件内容不是有效的JSON格式时</p></li>
+<li><p><strong>Exception</strong> – 其他可能发生的异常（如权限问题等）</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>当然，我这里的load_small_json是使用google分格写的，非常简便，
+但是记得需要添加 <code class="docutils literal notranslate"><span class="pre">sphinx.ext.napoleon</span></code> 扩展才能使用</p>
+</div>
+<p>为了进一步简化流程，我们这边又有了新的扩展，也就是 <code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/utils.html#module-utils" title="utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils</span></code></a></p></td>
+<td><p>工具函数</p></td>
+</tr>
+</tbody>
+</table>
+<p>接着就可以使用 <a class="reference internal" href="generated/utils.html"><span class="doc">utils</span></a> 里的内容了</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Achao的文档库" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/utils.html" class="btn btn-neutral float-right" title="utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, achao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
