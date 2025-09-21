@@ -93,8 +93,14 @@
 <section id="id1">
 <h2>本地批量复现<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>第一次运行需要安装一系列的包，这里以openbayes平台为例，直接运行一下脚本即可</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bash run-first.sh
+</pre></div>
+</div>
 <p>然后再运行这个批量脚本即可获得输出，当然，这里的输入规范为jsonl格式，包含两个字段
 分别为提示词和图片路径，这里在系统层面对图片路径加以约束，将其放置在images文件夹下方便管理</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python run-more.py
+</pre></div>
+</div>
 </section>
 </section>
 
