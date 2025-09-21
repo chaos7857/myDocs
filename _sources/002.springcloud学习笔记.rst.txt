@@ -1,4 +1,4 @@
-2.springcloud复习笔记
+002.springcloud复习笔记
 ####################################
 
 还得是 `黑马 <https://www.bilibili.com/video/BV1S142197x7/?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click&vd_source=3ae9dfcc16ba84113c717163327346c9>`_
@@ -106,6 +106,39 @@
 Service接口
     继承一时爽，一直继承一直爽
     
+    传递mapper和实体类即可    
+
+
+
+类的说明中可以添加 ``@Api(tgts = "xxx接口")``
+并在方法上 ``@ApiOperation("xxx")``
+
+
+由于直接 ``@Autowried`` 不是spring推荐的，这里可以使用构造函数注入的方式，但是这样会比较繁琐
+
+所以可以在类前加 ``@ArgsConstructor`` 来实现，但是这样又会导致注入了不需要的
+所以可以在类前加 ``@RequireArgsConstructor`` 来实现，当然，需要将 ``service`` 改为 ``final``
+
+.. CODE-BLOCK::
+
+    controller(){
+        1. 将DTO拷贝到PO
+        User user = BeanUtil.copyProperties(userDTO, User.class)
+        2. 新建Service
+    }
+
+
+.. CODE-BLOCK::
+
+    userService.listByIds(ids)
+    return BeanUtil.copyToList(users, UserVO.class)
+
+
+.. note::
+
+    ``@ApiParam`` 可以指定名称
+    ``@PathVariable("id")`` 可以直接在路径填
+
 
 
 
