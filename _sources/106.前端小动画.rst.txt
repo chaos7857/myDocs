@@ -1,0 +1,51 @@
+106.前端小动画
+###########################
+
+
+
+1. Transform（变形）
+*****************************
+transform属性允许对元素进行几何变换，包括缩放、旋转、倾斜和位移等操作。例如：
+
+.. code-block::
+
+  .box {
+    transform: scale(1.5); /* 缩放1.5倍 */transform: rotate(30deg); /* 旋转30度 */transform: translateX(100px); /* 水平移动100px */
+  }
+
+.. note::
+  transform不会影响元素的布局，仅改变视觉效果，且性能较好，适合动画使用。
+
+2. Transition（过渡）
+*****************************
+
+transition属性为属性变化添加动画效果，使变化过程平滑。例如：
+
+.. code-block::
+
+  .box {
+    transition: transform 0.3s ease-out;
+  }
+  .box:hover {
+    transform: scale(1.2);
+  }
+
+transition的核心参数包括：
+  - transition-property：指定过渡的属性（如transform、opacity等）。
+  - transition-duration：动画持续时间（如0.3s）。
+  - transition-timing-function：动画速度曲线（如ease、linear等）。
+
+3. Animation（动画）
+*****************************
+animation通过@keyframes定义复杂动画序列，适合复杂动画效果。例如：
+
+.. code-block::
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  .box {
+    animation: pulse 1s infinite;
+  }

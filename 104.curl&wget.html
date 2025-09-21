@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>104.curl&amp;wget &mdash; Achao的文档库 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="105.KMP" href="105.KMP.html" />
+    <link rel="prev" title="103.集群作业提交" href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Achao的文档库
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="001.sphinx%E8%AF%AD%E6%B3%95%E5%A4%8D%E4%B9%A0.html">001.sphinx review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="002.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">002.springcloud复习笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="003.Bayes-cli.html">003.Bayes-cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101.%E7%BD%91%E7%BB%9C.html">101.网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102.%E7%9B%B8%E6%9C%BA%E5%86%85%E5%A4%96%E5%8F%82.html">102.相机内外参</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html">103.集群作业提交</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">104.curl&amp;wget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="105.KMP.html">105.KMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="106.%E5%89%8D%E7%AB%AF%E5%B0%8F%E5%8A%A8%E7%94%BB.html">106.前端小动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="201.%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD%E8%B0%83%E7%A0%94.html">201.图像模糊判断调研</a></li>
+<li class="toctree-l1"><a class="reference internal" href="202.grounded%2Bsam.html">202.grounded+sam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="601.FastVLM.html">601.FastVLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="901.3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html">901.3D场景提示的具身模型设想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="902.YOLO%E5%B7%AE%E5%88%AB%E5%A4%8D%E7%9B%98.html">902.YOLO差别复盘</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Achao的文档库</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">104.curl&amp;wget</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/104.curl&amp;wget.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="curl-wget">
+<h1>104.curl&amp;wget<a class="headerlink" href="#curl-wget" title="Link to this heading"></a></h1>
+<p>curl 和 wget 是 Linux/Unix 系统中最常用的两款 <strong>命令行网络工具</strong>，核心功能均为“与服务器进行数据传输”（如下载文件、发送请求），但设计定位、功能侧重和使用场景存在显著差异。以下从核心定位、功能特性、典型场景等维度展开对比，帮助你清晰区分二者。</p>
+<p>一、核心定位差异
+二者的本质区别源于设计目标的不同，这直接决定了它们的功能侧重：
+工具
+核心定位
+设计理念
+curl
+“全能瑞士军刀”
+专注于 <strong>灵活的网络请求交互</strong>，支持多种协议和请求类型（如下载、上传、提交表单、模拟登录），更适合开发者调试接口或编写自动化脚本。
+wget
+“下载专才”
+专注于 <strong>简单高效的文件下载</strong>，内置“断点续传”“递归下载”等下载优化功能，无需复杂参数即可完成批量/大文件下载，更适合普通用户或批量获取资源。</p>
+<p>二、关键功能特性对比
+从协议支持、下载能力、交互性等维度，二者的差异可通过下表直观体现：</p>
+<p>对比维度
+curl
+wget
+支持协议
+极其丰富：HTTP/HTTPS、FTP、SFTP、SCP、FTPS、TFTP、LDAP、SMTP、POP3 等（超过20种）
+基础常用：HTTP/HTTPS、FTP、FTPS（无 SFTP/SCP 等安全传输协议）
+下载核心能力
+1. 需手动指定 -O（大写）保存文件，默认输出到终端（stdout）；&lt;br&gt;2. 断点续传需手动加 -C - 参数；&lt;br&gt;3. <a href="#id1"><span class="problematic" id="id2">**</span></a>无内置递归下载功能**（需结合脚本实现）。
+1. 默认自动保存文件（文件名与远程一致），无需额外参数；&lt;br&gt;2. 断点续传默认支持（断开后重新执行相同命令即可）；&lt;br&gt;3. 内置 -r（递归）参数，可批量下载整站/目录资源。
+上传能力
+强大：支持 HTTP POST/PUT 上传、FTP 上传（如 curl -T localfile <a class="reference external" href="ftp://server">ftp://server</a>），可模拟表单提交（文件/数据）。
+较弱：仅支持 FTP 上传（wget –upload-file localfile <a class="reference external" href="ftp://server">ftp://server</a>），不支持 HTTP 上传。
+交互与调试
+1. 支持自定义 HTTP 头（-H “User-Agent: xxx”）、Cookie（-b/-c）、认证（-u 用户名:密码）；&lt;br&gt;2. 可显示请求/响应详情（-v  verbose 模式），适合调试接口；&lt;br&gt;3. 支持 JSON 数据提交（-d ‘{“key”:”val”}’），契合 API 开发需求。
+1. 也支持基础认证和 Cookie，但自定义 HTTP 头需通过 –header，灵活性较低；&lt;br&gt;2. 调试能力弱，仅能显示简单的下载进度和日志，无法查看完整请求/响应。
+会话保持
+需手动管理 Cookie（-c 保存Cookie/-b 加载Cookie），或通过 -L 跟随重定向，但无“会话记忆”。
+同样支持 -r 重定向和 Cookie，但无额外会话功能，核心仍在下载。
+跨平台支持
+原生支持 Linux/macOS，Windows 需通过 WSL、Cygwin 或单独安装（如 cURL for Windows）。
+原生支持 Linux/macOS，Windows 可通过 WSL 或 GNU Wget for Windows 安装，部分 Windows 10+ 版本已预装。</p>
+<p>三、典型使用场景对比
+根据功能侧重，二者的适用场景明显分化：</p>
+<p>1. curl 的典型场景
+侧重“<strong>灵活交互</strong>”，多用于开发者调试或脚本化操作：
+- 接口调试：发送 HTTP GET/POST 请求，查看响应结果（如调试 REST API）：
+# 发送 GET 请求，查看响应（默认输出到终端）
+curl <a class="reference external" href="https://api.example.com/user/123">https://api.example.com/user/123</a></p>
+<p># 发送 POST 请求，提交 JSON 数据
+curl -X POST -H “Content-Type: application/json” -d ‘{“name”:”test”,”age”:20}’ <a class="reference external" href="https://api.example.com/user">https://api.example.com/user</a>
+- 下载单个文件（需手动指定保存文件名）：
+# 保存为 “example.zip”（-O 按远程文件名保存，-o 自定义文件名）
+curl -O <a class="reference external" href="https://example.com/file.zip">https://example.com/file.zip</a>
+curl -o myfile.zip <a class="reference external" href="https://example.com/file.zip">https://example.com/file.zip</a>
+- 模拟登录/携带认证：通过 Cookie 或账号密码访问需要认证的资源：
+# 携带账号密码访问（Basic Auth）
+curl -u admin:123456 https://secure.example.com
+2. wget 的典型场景
+侧重“<strong>简单高效下载</strong>”，多用于普通用户或批量获取资源：
+- 直接下载单个文件（无需额外参数，自动保存为远程文件名）：
+# 直接下载，自动保存为 “file.zip”
+wget <a class="reference external" href="https://example.com/file.zip">https://example.com/file.zip</a>
+- 断点续传（下载大文件时断开后，重新执行命令即可恢复，无需额外参数）：
+# 断开后重新执行，自动从断点继续下载
+wget <a class="reference external" href="https://example.com/large_file.iso">https://example.com/large_file.iso</a>
+- 递归下载整站/目录（批量获取资源，如下载博客所有文章、FTP 目录文件）：
+# 递归下载 example.com 的 /docs 目录下所有文件（–no-parent 不向上级目录递归）
+wget -r –no-parent <a class="reference external" href="https://example.com/docs/">https://example.com/docs/</a></p>
+<p># 下载 FTP 服务器的 /public 目录（匿名登录）
+wget -r <a class="reference external" href="ftp://ftp.example.com/public/">ftp://ftp.example.com/public/</a>
+- 后台下载（适合长时间下载，关闭终端后仍继续）：
+# -b 后台运行，日志保存到 wget-log
+wget -b <a class="reference external" href="https://example.com/large_file.iso">https://example.com/large_file.iso</a>
+四、总结：如何选择？
+1. 优先选 curl 的情况：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>需要调试 API、发送 POST/PUT 请求或自定义 HTTP 头；</p></li>
+<li><p>需要上传文件（尤其是 HTTP 上传）；</p></li>
+<li><p>需要查看请求/响应的详细日志（如调试接口问题）；</p></li>
+<li><p>编写自动化脚本时，需要更灵活的参数控制。</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>优先选 wget 的情况：</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>仅需简单下载文件，不想记忆复杂参数；</p></li>
+<li><p>需要断点续传（如下载大文件）；</p></li>
+<li><p>需要递归下载整站或目录（如批量获取资源）；</p></li>
+<li><p>希望后台运行下载任务，关闭终端不中断。</p></li>
+</ul>
+</div></blockquote>
+<p>补充：二者的“交叉功能”
+虽然侧重不同，但部分场景下二者可替代：
+- 下载单个小文件：curl -O URL ≈ wget URL；
+- 断点续传：curl -C - -O URL ≈ wget URL（wget 无需 -C）；
+- 跟随重定向：curl -L URL ≈ wget -r URL。
+但核心差异（如 curl 的交互性、wget 的递归下载）无法替代，需根据具体需求选择。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html" class="btn btn-neutral float-left" title="103.集群作业提交" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="105.KMP.html" class="btn btn-neutral float-right" title="105.KMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, achao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

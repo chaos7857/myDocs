@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>601.FastVLM &mdash; Achao的文档库 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="901.3D场景提示的具身模型设想" href="901.3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html" />
+    <link rel="prev" title="202.grounded+sam" href="202.grounded%2Bsam.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Achao的文档库
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="001.sphinx%E8%AF%AD%E6%B3%95%E5%A4%8D%E4%B9%A0.html">001.sphinx review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="002.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">002.springcloud复习笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="003.Bayes-cli.html">003.Bayes-cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101.%E7%BD%91%E7%BB%9C.html">101.网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102.%E7%9B%B8%E6%9C%BA%E5%86%85%E5%A4%96%E5%8F%82.html">102.相机内外参</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html">103.集群作业提交</a></li>
+<li class="toctree-l1"><a class="reference internal" href="104.curl%26wget.html">104.curl&amp;wget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="105.KMP.html">105.KMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="106.%E5%89%8D%E7%AB%AF%E5%B0%8F%E5%8A%A8%E7%94%BB.html">106.前端小动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="201.%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD%E8%B0%83%E7%A0%94.html">201.图像模糊判断调研</a></li>
+<li class="toctree-l1"><a class="reference internal" href="202.grounded%2Bsam.html">202.grounded+sam</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">601.FastVLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="901.3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html">901.3D场景提示的具身模型设想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="902.YOLO%E5%B7%AE%E5%88%AB%E5%A4%8D%E7%9B%98.html">902.YOLO差别复盘</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Achao的文档库</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">601.FastVLM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/601.FastVLM.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fastvlm">
+<h1>601.FastVLM<a class="headerlink" href="#fastvlm" title="Link to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>user:what is the yellow object in the picture?
+bot: banana
+
+&lt;doc&gt;  &lt;/doc&gt;
+Answer: banana
+&lt;start of description&gt;
+The image shows a silver, metallic robotic arm situated in front of a light brown tray. On the tray, there is a red pepper in the left corner, a yellow banana in the center, and a piece of bread in the right corner. The arm is equipped with black pincers and a blue light is also visible nearby, suggesting either a sensor or actuator
+&lt;
+The image provides a clear and professional perspective of the robotic arm in action, demonstrating its utility in handling various objects with precision. The color palette is simple, with the robot&#39;s metallic sheen contrasting starkly with the bright
+user:What objects are in the picture?list in a set like this:&quot;(person, car, tree)&quot;
+bot: The image contains a robotic arm with a robotic hand that is interacting with various items on a tray below a surface. The objects in the picture include: a red pepper, a banana, a piece of bread, and a yellow object that appears to be a fruit or vegetable. The robotic hand is seen holding one of the pieces of bread, while the others are on the tray below the hand. The image has no people or cars present.
+Regarding the question, if &quot;person&quot; was not listed and the description mentioned the robotic arm and items related to it, please specify the items to give the rest of the answer more detail.
+====================
+user:what is the yellow object in the picture?
+bot: banana
+
+&lt;doc&gt;  &lt;/doc&gt;
+Answer: banana
+&lt;doc&gt;  &lt;/doc&gt;
+&lt;doc&gt;  &lt;/doc&gt;
+&lt;doc&gt;  &lt;/doc&gt;
+&lt;doc&gt;  &lt;/doc&gt;
+
+
+====================
+user:^L
+bot: 的图像显示一个机器人与几个物体互动，例如：
+1. 一个白色托盘
+2. 一个橘子
+3. 一个香蕉
+4. 一片面包
+5. 一个红色的物体（根据周围情况其他可能性可能是香蕉、橙子或苹果）
+这些物体和机器人都与图中的白色托盘相互作用，而这些物品的存在表明一种交互式、基于检测或感应的机器人操作系统。
+3. 一个蓝色的物体（可能是一个盒子或类似的物品）位于图像的右上角。
+在该图像中，该场景有
+====================
+user:what is the yellow object in the picture?
+bot: banana
+rice cooker
+answering cannot be determined from the image
+The question &quot;What is the yellow object in the picture?&quot; cannot be answered definitively as the image does not clearly display the full objects. The yellow object is partially out of frame, and only a small portion is visible. The object at the bottom right of the picture appears to have a textured surface and might be made of a matte material, possibly resembling a piece of fruit like a strawberry or an apricot. It&#39;s difficult to determine the exact object due to the limited view of it. Additional context or a clearer view of the object is needed
+====================
+user:图中有哪些物品
+bot: 图中有几种水果和像香蕉和番茄或其他水果一样的小物件，其中一些是放在盒子里。这些物品似乎是被人微笑着拿着的。
+小的物体，包括香蕉。
+此外，该图像的特点中还包括一个机器或工具存在，它正在探索或处理物体。
+这些物体和机器的互动可以起到多重作用，例如为机器提供工作区或为小物件提供潜在的任务。
+小电器、小水果、小物件和机器或工具似乎一起创造了一个创造性而有趣的场景，不同元素被用来展示功能性和组织性。
+总的来说，这幅
+====================
+user:用单个词描述图中的物体，不要有多余的话
+bot: 图片中物体的单个词描述如下：机器人，香蕉，面包。
+1. 為何用？：图片中的机器人用于某种实验或测试目的。
+2. 研究者或研究动物：使用机器的目的是在安全可控环境下研究或研究特定任务，如食物生产、营养素分布或健康。
+3. 制造或维修：图中机器可能在进行某种创造或维修任务，如清洁、修理或维护机器。
+4. 工akers或工人：这些对象可用于在工业环境中对设备进行维修、测试和其他专业任务。
+5. 机器人
+====================
+user:图中红色的是什么
+bot: 图中的红色物体看上去像是一个水果。根据现有资料和其外观特征，我们可以确定它是西兰花，而西兰花的鲜艳粉红色也符合其特征。
+这幅图片描绘的是一个机器人，它被设计成执行从一个托盘的物体转移到另一个托盘的运动任务。
+这张照片似乎是一个 demonstration 机器人试图完成的特定任务。
+图示中，该机器人似乎专注于从一个托盘上的食物转移到另一个托盘上的一个特定物品。可以推断出这只机器是用来执行这些动作的。
+这张图片是用于演示。
+然而，
+====================
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="202.grounded%2Bsam.html" class="btn btn-neutral float-left" title="202.grounded+sam" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="901.3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html" class="btn btn-neutral float-right" title="901.3D场景提示的具身模型设想" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, achao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+105.KMP
+#############################
+
+KMP算法是一种高效的字符串匹配算法，全称为Knuth-Morris-Pratt算法，由Knuth、Morris和Pratt三人共同设计。它通过预处理模式串，构建部分匹配表（也称为最长前缀后缀数组），从而在匹配过程中避免不必要的字符比较，提高匹配效率。
+
+KMP算法的核心思想
+1. 预处理模式串，构建部分匹配表（partial match table）
+2. 利用部分匹配表，在匹配失败时，确定模式串应该回溯的位置，而不是简单地从头开始
+部分匹配表（PMT）
+部分匹配表是KMP算法的关键，它记录了模式串中每个前缀的最长前缀后缀长度。对于模式串pattern，pmt[i]表示pattern[0..i]的最长前缀后缀长度。
+
+- 前缀：除最后一个字符外，字符串的所有头部组合
+- 后缀：除第一个字符外，字符串的所有尾部组合
+KMP算法实现
+下面是KMP算法的Python实现，包含构建部分匹配表和字符串匹配两个主要功能：
+def compute_prefix_function(pattern):
+    """计算模式串的前缀函数（部分匹配表）"""
+    n = len(pattern)
+    pmt = [0] * n  # 部分匹配表
+    
+    for i in range(1, n):
+        # 最长前缀后缀长度
+        j = pmt[i-1]
+        
+        # 如果当前字符不匹配，回溯查找更短的前缀
+        while j > 0 and pattern[i] != pattern[j]:
+            j = pmt[j-1]
+        
+        # 如果匹配，长度加1
+        if pattern[i] == pattern[j]:
+            j += 1
+        
+        pmt[i] = j
+    
+    return pmt
+
+def kmp_search(text, pattern):
+    """使用KMP算法在文本中查找模式串"""
+    m = len(text)
+    n = len(pattern)
+    
+    # 边界情况处理
+    if n == 0:
+        return []  # 空模式串匹配所有位置
+    if m < n:
+        return []  # 文本长度小于模式串，无匹配
+    
+    # 计算部分匹配表
+    pmt = compute_prefix_function(pattern)
+    matches = []  # 存储所有匹配的起始索引
+    j = 0  # 模式串的当前匹配位置
+    
+    for i in range(m):
+        # 当字符不匹配时，根据部分匹配表回溯
+        while j > 0 and text[i] != pattern[j]:
+            j = pmt[j-1]
+        
+        # 如果字符匹配，移动模式串指针
+        if text[i] == pattern[j]:
+            j += 1
+        
+        # 找到完整匹配
+        if j == n:
+            matches.append(i - n + 1)  # 记录匹配的起始位置
+            j = pmt[j-1]  # 继续查找下一个匹配
+    
+    return matches
+
+# 示例用法
+if __name__ == "__main__":
+    text = "ABABDABACDABABCABAB"
+    pattern = "ABABCABAB"
+    
+    # 计算部分匹配表
+    pmt = compute_prefix_function(pattern)
+    print(f"模式串 '{pattern}' 的部分匹配表: {pmt}")
+    
+    # 执行KMP搜索
+    positions = kmp_search(text, pattern)
+    
+    if positions:
+        print(f"在文本中找到模式串，起始位置为: {positions}")
+        for pos in positions:
+            print(f"匹配位置 {pos}: {text[pos:pos+len(pattern)]}")
+    else:
+        print("未在文本中找到模式串")
+
+
+
+
+
+算法分析
+- 时间复杂度：
+  - 预处理（构建部分匹配表）：O(n)，其中n是模式串长度
+  - 匹配过程：O(m)，其中m是文本长度
+  - 总体：O(m + n)
+- 空间复杂度：O(n)，用于存储部分匹配表
+KMP算法的优势
+相比朴素的字符串匹配算法（时间复杂度O(m*n)），KMP算法在处理长文本和模式串时效率更高，特别是在存在大量重复前缀后缀的情况下表现尤为出色。它避免了文本指针的回溯，只需要移动模式串指针，大大减少了不必要的比较操作。
+
+KMP算法广泛应用于文本编辑器的查找功能、DNA序列分析、网络安全中的模式匹配等领域。

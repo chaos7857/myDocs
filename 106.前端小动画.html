@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>106.前端小动画 &mdash; Achao的文档库 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="201.图像模糊判断调研" href="201.%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD%E8%B0%83%E7%A0%94.html" />
+    <link rel="prev" title="105.KMP" href="105.KMP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Achao的文档库
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="001.sphinx%E8%AF%AD%E6%B3%95%E5%A4%8D%E4%B9%A0.html">001.sphinx review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="002.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">002.springcloud复习笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="003.Bayes-cli.html">003.Bayes-cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101.%E7%BD%91%E7%BB%9C.html">101.网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102.%E7%9B%B8%E6%9C%BA%E5%86%85%E5%A4%96%E5%8F%82.html">102.相机内外参</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html">103.集群作业提交</a></li>
+<li class="toctree-l1"><a class="reference internal" href="104.curl%26wget.html">104.curl&amp;wget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="105.KMP.html">105.KMP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">106.前端小动画</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transform">1. Transform（变形）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transition">2. Transition（过渡）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#animation">3. Animation（动画）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="201.%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD%E8%B0%83%E7%A0%94.html">201.图像模糊判断调研</a></li>
+<li class="toctree-l1"><a class="reference internal" href="202.grounded%2Bsam.html">202.grounded+sam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="601.FastVLM.html">601.FastVLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="901.3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html">901.3D场景提示的具身模型设想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="902.YOLO%E5%B7%AE%E5%88%AB%E5%A4%8D%E7%9B%98.html">902.YOLO差别复盘</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Achao的文档库</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">106.前端小动画</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/106.前端小动画.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>106.前端小动画<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<section id="transform">
+<h2>1. Transform（变形）<a class="headerlink" href="#transform" title="Link to this heading"></a></h2>
+<p>transform属性允许对元素进行几何变换，包括缩放、旋转、倾斜和位移等操作。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">box</span> <span class="p">{</span>
+  <span class="n">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="mf">1.5</span><span class="p">);</span> <span class="o">/*</span> <span class="n">缩放1</span><span class="mf">.5</span><span class="n">倍</span> <span class="o">*/</span><span class="n">transform</span><span class="p">:</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="n">deg</span><span class="p">);</span> <span class="o">/*</span> <span class="n">旋转30度</span> <span class="o">*/</span><span class="n">transform</span><span class="p">:</span> <span class="n">translateX</span><span class="p">(</span><span class="mi">100</span><span class="n">px</span><span class="p">);</span> <span class="o">/*</span> <span class="n">水平移动100px</span> <span class="o">*/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>transform不会影响元素的布局，仅改变视觉效果，且性能较好，适合动画使用。</p>
+</div>
+</section>
+<section id="transition">
+<h2>2. Transition（过渡）<a class="headerlink" href="#transition" title="Link to this heading"></a></h2>
+<p>transition属性为属性变化添加动画效果，使变化过程平滑。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">box</span> <span class="p">{</span>
+  <span class="n">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="mf">0.3</span><span class="n">s</span> <span class="n">ease</span><span class="o">-</span><span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">box</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
+  <span class="n">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="mf">1.2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>transition的核心参数包括：</dt><dd><ul class="simple">
+<li><p>transition-property：指定过渡的属性（如transform、opacity等）。</p></li>
+<li><p>transition-duration：动画持续时间（如0.3s）。</p></li>
+<li><p>transition-timing-function：动画速度曲线（如ease、linear等）。</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="animation">
+<h2>3. Animation（动画）<a class="headerlink" href="#animation" title="Link to this heading"></a></h2>
+<p>animation通过&#64;keyframes定义复杂动画序列，适合复杂动画效果。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@keyframes</span> <span class="n">pulse</span> <span class="p">{</span>
+  <span class="mi">0</span><span class="o">%</span> <span class="p">{</span> <span class="n">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+  <span class="mi">50</span><span class="o">%</span> <span class="p">{</span> <span class="n">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="mf">1.2</span><span class="p">);</span> <span class="p">}</span>
+  <span class="mi">100</span><span class="o">%</span> <span class="p">{</span> <span class="n">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="n">box</span> <span class="p">{</span>
+  <span class="n">animation</span><span class="p">:</span> <span class="n">pulse</span> <span class="mi">1</span><span class="n">s</span> <span class="n">infinite</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="105.KMP.html" class="btn btn-neutral float-left" title="105.KMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="201.%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD%E8%B0%83%E7%A0%94.html" class="btn btn-neutral float-right" title="201.图像模糊判断调研" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, achao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>102.相机内外参 &mdash; Achao的文档库 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="103.集群作业提交" href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html" />
+    <link rel="prev" title="101.网络" href="101.%E7%BD%91%E7%BB%9C.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Achao的文档库
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="001.sphinx%E8%AF%AD%E6%B3%95%E5%A4%8D%E4%B9%A0.html">001.sphinx review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="002.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">002.springcloud复习笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="003.Bayes-cli.html">003.Bayes-cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101.%E7%BD%91%E7%BB%9C.html">101.网络</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">102.相机内外参</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html">103.集群作业提交</a></li>
+<li class="toctree-l1"><a class="reference internal" href="104.curl%26wget.html">104.curl&amp;wget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="105.KMP.html">105.KMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="106.%E5%89%8D%E7%AB%AF%E5%B0%8F%E5%8A%A8%E7%94%BB.html">106.前端小动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="201.%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD%E8%B0%83%E7%A0%94.html">201.图像模糊判断调研</a></li>
+<li class="toctree-l1"><a class="reference internal" href="202.grounded%2Bsam.html">202.grounded+sam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="601.FastVLM.html">601.FastVLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="901.3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html">901.3D场景提示的具身模型设想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="902.YOLO%E5%B7%AE%E5%88%AB%E5%A4%8D%E7%9B%98.html">902.YOLO差别复盘</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Achao的文档库</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">102.相机内外参</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/102.相机内外参.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>102.相机内外参<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>一、相机内参（Intrinsic Parameters）：描述相机“自身属性”
+相机内参仅与相机硬件结构相关，<strong>不随相机在空间中的位置/姿态变化</strong>，一旦相机制造完成或标定后便固定（除非调整焦距、光圈等硬件参数）。其核心作用是建立“相机坐标系”（以相机光心为原点的三维坐标系）到“图像坐标系”（图像像素平面的二维坐标系）的映射关系。</p>
+<p>1. 内参的核心参数与作用
+内参通常用一个 3×3 的矩阵 ( K ) 表示，包含5个关键参数（针孔相机模型下），各参数作用如下：</p>
+<p>参数符号
+参数名称
+物理意义与核心作用
+( f_x )
+水平方向焦距（像素单位）
+将相机坐标系中“水平方向的三维距离”转换为图像平面“水平方向的像素距离”，与物理焦距 ( f ) 和传感器水平像素尺寸 ( d_x ) 满足 ( f_x = f / d_x )。
+( f_y )
+垂直方向焦距（像素单位）
+同理，将“垂直方向的三维距离”转换为“垂直方向的像素距离”，满足 ( f_y = f / d_y )（( d_y ) 为传感器垂直像素尺寸）。
+( c_x )
+主点水平坐标（像素）
+相机**光轴**（镜头中心轴线）与图像平面的交点（即“主点”）的水平像素坐标，通常接近图像中心，但因制造误差可能偏移。
+( c_y )
+主点垂直坐标（像素）
+主点的垂直像素坐标，作用同上，确保光轴投影位置准确。
+( s )
+skew 因子（倾斜系数）
+描述图像坐标系水平轴与垂直轴的非正交程度（因传感器安装偏差导致），多数相机 ( s=0 )，作用是修正轴倾斜带来的投影偏差。</p>
+<p>2. 内参的核心功能总结
+- 尺度转换：将物理世界的“毫米/米”等单位，转换为图像的“像素”单位（通过 ( f_x, f_y ) 实现）；
+- 定位主点：确定光轴在图像上的投影位置（( c_x, c_y )），避免因主点偏移导致的图像“偏移”误差；
+- 修正畸变：配合畸变参数（如径向畸变、切向畸变，常与内参一同标定），修正镜头光学缺陷导致的图像变形（如鱼眼镜头的桶形畸变、长焦镜头的枕形畸变）。
+二、相机外参（Extrinsic Parameters）：描述相机“空间姿态”
+相机外参与相机在**真实世界坐标系（世界坐标系）中的位置和姿态相关**，会随相机移动、旋转而实时变化。其核心作用是建立“世界坐标系”（如地面、机器人基座的三维坐标系）到“相机坐标系”的转换关系，即回答“相机在世界的哪里？”“相机朝向哪个方向？”。</p>
+<p>1. 外参的核心参数与作用
+外参由两部分组成，共同实现世界坐标系到相机坐标系的“刚体变换”（仅位置和姿态变化，不改变尺度）：</p>
+<p>参数类型
+参数名称
+物理意义与核心作用
+旋转矩阵 ( R )（3×3）
+姿态参数
+描述相机坐标系相对于世界坐标系的**旋转角度**，包含3个自由度（绕X轴俯仰、绕Y轴偏航、绕Z轴滚转）。通过 ( R ) 可将世界坐标系中的向量“旋转”到相机坐标系中。
+平移向量 ( t )（3×1）
+位置参数
+描述相机坐标系原点相对于世界坐标系原点的**位置偏移**，包含3个自由度（X/Y/Z轴方向的距离）。通过 ( t ) 可将世界坐标系中的点“平移”到相机坐标系中。</p>
+<p>2. 外参的核心功能总结
+- 姿态定位：确定相机的朝向（如机器人视觉中“相机是否对准目标”）；
+- 位置定位：确定相机在世界中的位置（如无人机航拍中“相机当前的GPS坐标对应图像哪个区域”）；
+- 坐标转换：将真实场景中物体的世界坐标（如“桌子左上角在世界坐标系中坐标为 (1,2,0) ”）转换为相机坐标系下的坐标，为后续投影到图像平面做准备。
+三、内参与外参的协同作用：完整投影流程
+内参和外参并非独立工作，而是通过“三维点→相机坐标系→二维图像点”的两步投影流程协同作用，最终实现“真实场景成像”：</p>
+<ol class="arabic simple">
+<li><p>第一步：世界坐标 → 相机坐标（外参作用）设世界坐标系中的三维点为 $$P_w = [X_w, Y_w, Z_w]^T $$，通过外参的刚体变换，得到该点在相机坐标系中的坐标  $$P_c = [X_c, Y_c, Z_c]^T$$ ，公式为：$$ P_c = R cdot P_w + t $$（本质是先旋转对齐坐标系，再平移原点）</p></li>
+</ol>
+<p>2. 第二步：相机坐标 → 图像坐标（内参作用）通过针孔相机模型，将相机坐标系中的三维点 $$P_c$$ 投影到图像平面的二维像素坐标 $$p = [u, v]^T $$，公式为：$$ begin{bmatrix} u \ v \ 1 end{bmatrix} = frac{1}{Z_c} cdot K cdot begin{bmatrix} X_c \ Y_c \ Z_c end{bmatrix} $$$$( 1/Z_c )$$ 是“透视投影”的核心，体现“远小近大”的成像规律；内参$$K$$ 负责将相机坐标的物理单位转换为像素单位，并修正主点偏移）
+[图片]
+四、典型应用场景：为何需要内参和外参？
+内参和外参的标定与应用是计算机视觉的基础，常见场景包括：</p>
+<p>应用领域
+内参的作用
+外参的作用
+三维重建
+修正镜头畸变，确保重建的三维模型无变形；提供像素与物理尺度的映射（如“100像素对应真实世界10厘米”）。
+确定多个相机（或同一相机不同位置）的相对姿态和位置，实现多视角图像融合（如立体视觉的双目相机外参标定）。
+目标测量
+结合内参计算目标的真实尺寸（如“图像中目标占200像素，已知内参可反推其真实宽度”）。
+确定目标在世界坐标系中的位置（如“通过外参计算图像中汽车的真实GPS坐标”）。
+相机标定
+出厂或使用前标定内参，消除硬件误差（如焦距偏移、主点偏移）。
+标定多相机间的相对外参（如双目相机、全景相机），确保各相机图像可对齐。
+SLAM（同步定位与地图构建）
+提供相机的固有参数，作为定位和建图的“基准”。
+实时估计相机（如机器人、AR设备）的位置和姿态，实现“边走边建图”。
+AR/VR
+修正虚拟物体渲染时的畸变，确保虚拟图像与真实图像融合自然。
+实时跟踪相机（如手机、VR头显）的姿态和位置，让虚拟物体“固定”在真实场景中（如AR中“虚拟杯子放在真实桌子上”）。</p>
+<p>总结：内参与外参的核心区别与联系
+维度
+内参（Intrinsic）
+外参（Extrinsic）
+决定因素
+相机硬件（镜头、传感器）
+相机在世界中的位置和姿态
+稳定性
+固定（除非调整焦距、硬件）
+动态变化（随相机移动/旋转）
+核心作用
+连接相机坐标系与图像坐标系（像素映射）
+连接世界坐标系与相机坐标系（空间定位）
+依赖关系
+不依赖外参
+不依赖内参，但需与内参协同完成投影</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="101.%E7%BD%91%E7%BB%9C.html" class="btn btn-neutral float-left" title="101.网络" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html" class="btn btn-neutral float-right" title="103.集群作业提交" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, achao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

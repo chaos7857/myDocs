@@ -1,0 +1,99 @@
+104.curl&wget
+##########################
+
+
+
+curl 和 wget 是 Linux/Unix 系统中最常用的两款 **命令行网络工具**，核心功能均为“与服务器进行数据传输”（如下载文件、发送请求），但设计定位、功能侧重和使用场景存在显著差异。以下从核心定位、功能特性、典型场景等维度展开对比，帮助你清晰区分二者。
+
+
+一、核心定位差异
+二者的本质区别源于设计目标的不同，这直接决定了它们的功能侧重：
+工具
+核心定位
+设计理念
+curl
+“全能瑞士军刀”
+专注于 **灵活的网络请求交互**，支持多种协议和请求类型（如下载、上传、提交表单、模拟登录），更适合开发者调试接口或编写自动化脚本。
+wget
+“下载专才”
+专注于 **简单高效的文件下载**，内置“断点续传”“递归下载”等下载优化功能，无需复杂参数即可完成批量/大文件下载，更适合普通用户或批量获取资源。
+
+
+二、关键功能特性对比
+从协议支持、下载能力、交互性等维度，二者的差异可通过下表直观体现：
+
+对比维度
+curl
+wget
+支持协议
+极其丰富：HTTP/HTTPS、FTP、SFTP、SCP、FTPS、TFTP、LDAP、SMTP、POP3 等（超过20种）
+基础常用：HTTP/HTTPS、FTP、FTPS（无 SFTP/SCP 等安全传输协议）
+下载核心能力
+1. 需手动指定 -O（大写）保存文件，默认输出到终端（stdout）；<br>2. 断点续传需手动加 -C - 参数；<br>3. **无内置递归下载功能**（需结合脚本实现）。
+1. 默认自动保存文件（文件名与远程一致），无需额外参数；<br>2. 断点续传默认支持（断开后重新执行相同命令即可）；<br>3. 内置 -r（递归）参数，可批量下载整站/目录资源。
+上传能力
+强大：支持 HTTP POST/PUT 上传、FTP 上传（如 curl -T localfile ftp://server），可模拟表单提交（文件/数据）。
+较弱：仅支持 FTP 上传（wget --upload-file localfile ftp://server），不支持 HTTP 上传。
+交互与调试
+1. 支持自定义 HTTP 头（-H "User-Agent: xxx"）、Cookie（-b/-c）、认证（-u 用户名:密码）；<br>2. 可显示请求/响应详情（-v  verbose 模式），适合调试接口；<br>3. 支持 JSON 数据提交（-d '{"key":"val"}'），契合 API 开发需求。
+1. 也支持基础认证和 Cookie，但自定义 HTTP 头需通过 --header，灵活性较低；<br>2. 调试能力弱，仅能显示简单的下载进度和日志，无法查看完整请求/响应。
+会话保持
+需手动管理 Cookie（-c 保存Cookie/-b 加载Cookie），或通过 -L 跟随重定向，但无“会话记忆”。
+同样支持 -r 重定向和 Cookie，但无额外会话功能，核心仍在下载。
+跨平台支持
+原生支持 Linux/macOS，Windows 需通过 WSL、Cygwin 或单独安装（如 cURL for Windows）。
+原生支持 Linux/macOS，Windows 可通过 WSL 或 GNU Wget for Windows 安装，部分 Windows 10+ 版本已预装。
+
+
+三、典型使用场景对比
+根据功能侧重，二者的适用场景明显分化：
+
+1. curl 的典型场景
+侧重“**灵活交互**”，多用于开发者调试或脚本化操作：
+- 接口调试：发送 HTTP GET/POST 请求，查看响应结果（如调试 REST API）：
+# 发送 GET 请求，查看响应（默认输出到终端）
+curl https://api.example.com/user/123
+
+# 发送 POST 请求，提交 JSON 数据
+curl -X POST -H "Content-Type: application/json" -d '{"name":"test","age":20}' https://api.example.com/user
+- 下载单个文件（需手动指定保存文件名）：
+# 保存为 "example.zip"（-O 按远程文件名保存，-o 自定义文件名）
+curl -O https://example.com/file.zip
+curl -o myfile.zip https://example.com/file.zip
+- 模拟登录/携带认证：通过 Cookie 或账号密码访问需要认证的资源：
+# 携带账号密码访问（Basic Auth）
+curl -u admin:123456 https://secure.example.com
+2. wget 的典型场景
+侧重“**简单高效下载**”，多用于普通用户或批量获取资源：
+- 直接下载单个文件（无需额外参数，自动保存为远程文件名）：
+# 直接下载，自动保存为 "file.zip"
+wget https://example.com/file.zip
+- 断点续传（下载大文件时断开后，重新执行命令即可恢复，无需额外参数）：
+# 断开后重新执行，自动从断点继续下载
+wget https://example.com/large_file.iso
+- 递归下载整站/目录（批量获取资源，如下载博客所有文章、FTP 目录文件）：
+# 递归下载 example.com 的 /docs 目录下所有文件（--no-parent 不向上级目录递归）
+wget -r --no-parent https://example.com/docs/
+
+# 下载 FTP 服务器的 /public 目录（匿名登录）
+wget -r ftp://ftp.example.com/public/
+- 后台下载（适合长时间下载，关闭终端后仍继续）：
+# -b 后台运行，日志保存到 wget-log
+wget -b https://example.com/large_file.iso
+四、总结：如何选择？
+1. 优先选 curl 的情况：
+  - 需要调试 API、发送 POST/PUT 请求或自定义 HTTP 头；
+  - 需要上传文件（尤其是 HTTP 上传）；
+  - 需要查看请求/响应的详细日志（如调试接口问题）；
+  - 编写自动化脚本时，需要更灵活的参数控制。
+2. 优先选 wget 的情况：
+  - 仅需简单下载文件，不想记忆复杂参数；
+  - 需要断点续传（如下载大文件）；
+  - 需要递归下载整站或目录（如批量获取资源）；
+  - 希望后台运行下载任务，关闭终端不中断。
+补充：二者的“交叉功能”
+虽然侧重不同，但部分场景下二者可替代：
+- 下载单个小文件：curl -O URL ≈ wget URL；
+- 断点续传：curl -C - -O URL ≈ wget URL（wget 无需 -C）；
+- 跟随重定向：curl -L URL ≈ wget -r URL。
+但核心差异（如 curl 的交互性、wget 的递归下载）无法替代，需根据具体需求选择。

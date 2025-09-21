@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>003.Bayes-cli &mdash; Achao的文档库 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="101.网络" href="101.%E7%BD%91%E7%BB%9C.html" />
+    <link rel="prev" title="002.springcloud复习笔记" href="002.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Achao的文档库
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="001.sphinx%E8%AF%AD%E6%B3%95%E5%A4%8D%E4%B9%A0.html">001.sphinx review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="002.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">002.springcloud复习笔记</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">003.Bayes-cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101.%E7%BD%91%E7%BB%9C.html">101.网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="102.%E7%9B%B8%E6%9C%BA%E5%86%85%E5%A4%96%E5%8F%82.html">102.相机内外参</a></li>
+<li class="toctree-l1"><a class="reference internal" href="103.%E9%9B%86%E7%BE%A4%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4.html">103.集群作业提交</a></li>
+<li class="toctree-l1"><a class="reference internal" href="104.curl%26wget.html">104.curl&amp;wget</a></li>
+<li class="toctree-l1"><a class="reference internal" href="105.KMP.html">105.KMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="106.%E5%89%8D%E7%AB%AF%E5%B0%8F%E5%8A%A8%E7%94%BB.html">106.前端小动画</a></li>
+<li class="toctree-l1"><a class="reference internal" href="201.%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD%E8%B0%83%E7%A0%94.html">201.图像模糊判断调研</a></li>
+<li class="toctree-l1"><a class="reference internal" href="202.grounded%2Bsam.html">202.grounded+sam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="601.FastVLM.html">601.FastVLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="901.3D%E5%9C%BA%E6%99%AF%E6%8F%90%E7%A4%BA%E7%9A%84%E5%85%B7%E8%BA%AB%E6%A8%A1%E5%9E%8B%E8%AE%BE%E6%83%B3.html">901.3D场景提示的具身模型设想</a></li>
+<li class="toctree-l1"><a class="reference internal" href="902.YOLO%E5%B7%AE%E5%88%AB%E5%A4%8D%E7%9B%98.html">902.YOLO差别复盘</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Achao的文档库</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">003.Bayes-cli</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/003.Bayes-cli.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bayes-cli">
+<h1>003.Bayes-cli<a class="headerlink" href="#bayes-cli" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://openbayes.com/docs/cli/reference/">https://openbayes.com/docs/cli/reference/</a></p>
+<p>登录
+PS C:Userschaochen38&gt; bayes login -h</p>
+<blockquote>
+<div><p>Usage: bayes login [OPTIONS] [USERNAME]</p>
+<p>登录
+用法：     bayes login [用户名 | 令牌] [选项]
+可用选项：
+-h, –help   查看 login 的帮助</p>
+</div></blockquote>
+<p>╭─ Arguments ──────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   username      [USERNAME]  用户名 | 令牌 [env var: OPENBAYES_TOKEN] [default: None]                                 │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ –help  -h        Show this message and exit.                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+如果你有加入其他组织，也可以通过 bayes 切换到某一个组织进行操作。
+首先查看当前的组织列表：
+$ bayes org ls</p>
+<blockquote>
+<div><p>ROLE    ID              NAME
+MEMBER  open-tutorials  open-tutorials</p>
+</div></blockquote>
+<p>然后切换到组织 open-tutorials：
+$ bayes org switch open-tutorials
+已成功切换到组织 open-tutorials
+和 OpenBayes 的 Web 页面类似，当 bayes 切换到某一个组织后，其所看到的容器、数据仓库等信息都是当前组织的而不是个人的了。
+通过命令 bayes status 可以看到自己当前所在的组织：
+$ bayes status
+当前环境: <a class="reference external" href="https://openbayes.com">https://openbayes.com</a>
+当前组织: open-tutorials
+用户名: openbayes
+邮箱: <a class="reference external" href="mailto:xxx&#37;&#52;&#48;openbayes&#46;com">xxx<span>&#64;</span>openbayes<span>&#46;</span>com</a>
+如果想要切换回自己的个人账户，则可以使用 bayes org switch &lt;username&gt; 来实现。</p>
+<p>数据上传
+bayes data create tiny-imagenet -m “稍微说明一下这个 tiny-imagenet 数据集”
+bayes data new-version tiQXU5Z5DIy
+bayes data upload tiQXU5Z5DIy -v 1 -p ‘/Users/username/test-upload’ -o
+- -v 或 –version 需要上传的数据集版本号，必填
+- -p 或 –path 数据集文件或文件夹的本地路径，不填则使用当前目录
+- -d 或 –directory 数据集文件上传的指定路径，不填则默认使用根目录
+- -o 或 –open 将会在数据集上传完成后，在浏览器打开相应的 web 界面</p>
+<p>命令行容器
+使用 bayes gear ls 命令，可以查看你的所有容器
+bayes gear init 命令可以使用已存在的容器名称或容器 ID 对当前目录进行容器初始化，若使用一个不存在的容器名称进行初始化，会创建一个新的容器。</p>
+<p>另外，在通过 bayes gear init 将当前目录和容器绑定后目录下会出现文件 openbayes.yaml 内部初始化内容如下：
+## 有关「 OpenBayes 配置文件」的最新说明，请查阅 <a class="reference external" href="https://openbayes.com/docs/cli/config-file/">https://openbayes.com/docs/cli/config-file/</a></p>
+<p>## data_bindings
+#  指绑定的数据，支持「容器输出」以及「数据集」，最多同时绑定三个
+#
+#  一个完整的 data_bindings 样例如下：
+#
+#    data_bindings:
+#      - data: openbayes/mnist/1
+#        path: /input0
+#        type: ro
+#      - data: openbayes/jobs/jfaqJeLMcPM/output
+#        path: /output
+#        type: rw
+#
+#  亦可将 data_bindings 替换成 bindings， 简写成如下样例：
+#
+#    bindings:
+#      - openbayes/mnist/1:/input0
+#      - openbayes/mnist/1:/input1:rw
+#      - openbayes/jobs/jfaqJeLMcPM/output:/output
+#
+data_bindings: []</p>
+<p>## resource
+#  指使用什么算力容器，通过命令 bayes gear resource 可以看到支持的算力类型
+#
+resource: “rtx-4090”</p>
+<p>## env
+#  指使用什么运行时环境，通过命令 bayes gear env 可以查看支持的运行时环境
+#
+env: “pytorch-2.6-2204”</p>
+<p>## command
+#  只有在创建「脚本执行」时需要，指任务执行时的入口命令
+#
+command: “”</p>
+<p>## node
+#  指定运行节点数量
+#
+node: 1</p>
+<p>## parameters
+#  支持 key / value 形式的参数，该参数会在容器执行时生成 openbayes_params.json 并补充在 command 参数后面
+#  样例如下：
+#
+#    parameters:
+#      input: /input0
+#      epochs: 5
+#
+#    在执行时会生成一个内容为 {“input”: “/input0”, “epochs”: 5} 的 openbayes_params.json，
+#    并且会在执行命令后面追加 <cite>–input=/input0 –epochs=5</cite>
+#
+parameters: {}</p>
+<p>## 有关「 OpenBayes 自动调参」的最新说明，请查阅 <a class="reference external" href="https://openbayes.com/docs/hypertuning/">https://openbayes.com/docs/hypertuning/</a>
+#
+#  一个完整的 hyper_tuning 样例如下：
+#    hyper_tuning:
+#      max_job_count: 3
+#      hyperparameter_metric: precision
+#      goal: MINIMIZE
+#      algorithm: Bayesian
+#      parameter_specs:
+#      - name: regularization
+#        type: DOUBLE
+#        min_value: 0.001
+#        max_value: 10.0
+#        scale_type: UNIT_LOG_SCALE
+#      - name: latent_factors
+#        type: INTEGER
+#        min_value: 5
+#        max_value: 50
+#        scale_type: UNIT_LINEAR_SCALE
+#      - name: unobs_weight
+#        type: DOUBLE
+#        min_value: 0.001
+#        max_value: 5.0
+#        scale_type: UNIT_LOG_SCALE
+#      - name: feature_wt_factor
+#        type: DOUBLE
+#        min_value: 1
+#        max_value: 200
+#        scale_type: UNIT_LOG_SCALE
+#      - name: level
+#        type: DISCRETE
+#        discrete_values: [1, 2, 3, 4]
+#      - name: category
+#        type: CATEGORICAL
+#        categorical_values: [“A”, “B”, “C”]
+#
+hyper_tuning:</p>
+<blockquote>
+<div><p>## max_job_count
+#  一次自动调参的尝试次数，最多支持 100 次
+#
+max_job_count: 0</p>
+<p>## parallel_count
+#  并行的尝试个数受限于用户的单个资源类型的最大并行个数，通常是 1 或者 2
+#
+parallel_count: “1”</p>
+<p>## hyperparameter_metric
+#  目标变量
+#  有关目标变量的上报，请查阅 <a class="reference external" href="https://openbayes.com/docs/hypertuning/#2">https://openbayes.com/docs/hypertuning/#2</a>-上报目标变量
+hyperparameter_metric: “”</p>
+<p>## goal
+#  最优解的方向 ( MAXIMIZE 或 MINIMIZE )
+#
+goal: “”</p>
+<p>## algorithm
+#  采用的算法，支持的算法如下：
+#  Grid      对于只有 DISCRETE 以及 CATEGORICAL 类型参数的场景可以通过 GridSearch 遍历所有参数的组合
+#  Random    针对 INTEGER 以及 DOUBLE 类型，依据其所支持的分布类型，在 min_value 和 max_value 之间随机选择数值，对于 DISCRETE 和 CATEGORICAL 类型，其行为和 Grid 方式类似
+#  Bayesian  每次生成参数时考虑之前的「参数」-「目标变量」的结果，通过更新后的分布函数提供参数以期望获取更好的结果，其算法可以参考该文章
+#
+algorithm: “”</p>
+<p>## parameter_specs
+#  输入参数的规约
+#  参数规约的定义请查阅：<a class="reference external" href="https://openbayes.com/docs/hypertuning">https://openbayes.com/docs/hypertuning</a>/#参数规约的定义
+#
+parameter_specs: []</p>
+<p>## side_metrics
+#  其他参考指标
+#
+side_metrics: []</p>
+</div></blockquote>
+<p>其中 hyper_tuning 部分暂不介绍，但可以看到其他参数与 bayes gear run task 中使用的参数是一致的，通过在 openbayes.yaml 配置参数可以避免重复在使用 bayes gear run task 时重复输入参数。例如提供如下参数：
+data_bindings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>data: openbayes/mnist/1     # 数据集的完整路径
+path: /input0               # 挂载到容器中的路径
+type: ro                    # 可选：ro（只读）或 rw（可读写）</p></li>
+</ul>
+</div></blockquote>
+<p>resource: rtx-4090
+env: pytorch-2.0
+command: “python train.py -i /input0 -o ./model -e 2 -m model.h5 -l ./tf_dir”
+直接输入 bayes gear run task 命令即可执行一个在 pytorch-2.0 环境下，算力资源为 rtx-4090，绑定数据集 openbayes/mnist/1 到 /input0，入口命令为 python train.py -i /input0 -o ./model -e 2 -m model.h5 -l ./tf_dir 的任务了。
+- 使用 bayes gear status 命令，查看当前容器下的所有执行
+- 使用 bayes gear restart 命令，传入已完成执行的 ID，可以以相同的参数再次运行该次执行。
+- 使用 bayes gear stop 命令，传入运行中的容器执行 ID，可以关闭容器的该次执行。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>-f 或 –follow 会一直跟踪容器的状态，直到容器完全关闭</p></li>
+</ul>
+</div></blockquote>
+<p>执行完成后：
+使用 bayes gear download 命令，传入容器执行 ID，可以下载该容器的当前输出内容。
+$ bayes gear download 5mx0ki1s5ej8 –target ~/Downloads/data-download-location -u</p>
+<p>当前正在组织 org1 上进行操作…
+正在下载中，请稍候
+下载完成，文件保存在 ~/Downloads/data-download-location/cli-29.output.zip</p>
+<p>正在解压中，请稍候
+解压成功: 文件已解压到 ~/Downloads/data-download-location
+已删除源文件:  ~/Downloads/data-download-location/cli-29.output.zip
+介绍一下几个可用的参数：
+- -f 或 –from 指定下载的子路径，不填则下载整个输出
+- -t 或 –target 本地存在位置，不填则使用当前路径
+- -u 或 –unarchive 是否自动解压压缩包并删除源文件，不填则默认保留压缩包，不进行自动解压</p>
+<p>创建「Python 脚本执行」，并等待容器执行完成后下载输出内容
+组合使用 bayes gear run task 和 bayes gear download 命令，将会等待「Python 脚本执行」完成后下载输出内容。
+$ bayes gear run task -f &amp;&amp; bayes gear download -t /Users/username/test-data-download -u</p>
+<p>当前正在组织 org1 上进行操作…
+command 信息为: sleep 1
+正在上传源代码…
+正在准备上传源代码…
+正在获取上传授权…
+开始扫描文件，请稍候…
+共发现 10 个文件，总计 4.4 MB，开始上传…
+上传进度: 100% (10/10): 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4.43M/4.43M [00:05&lt;00:00, 809kB/s]</p>
+<p>✅ 源代码上传成功! 已上传 10 个文件
+正在向服务器请求创建容器…
+容器创建成功
+打开网页 <a class="reference external" href="https://openbayes.com/console/org1/jobs/onl6jcbkgahd">https://openbayes.com/console/org1/jobs/onl6jcbkgahd</a> 可查看容器的详细信息</p>
+<p>容器运行中
+当前正在组织 org1 上进行操作…
+正在下载中，请稍候
+下载完成，文件保存在 /Users/username/test-data-download/test-cli.output.zip</p>
+<p>正在解压中，请稍候
+解压成功: 文件已解压到 /Users/username/test-data-download
+已删除源文件: /Users/username/test-data-download/test-cli.output.zip
+通过配置文件直接执行任务
+OpenBayes 配置文件（openbayes.yaml）与命令行工具结合使用，可以大大简化重复的命令的输入。
+当使用命令行工具时，可以通过命令参数的形式将所需要的「环境」「资源」「数据集」等信息传递进来，例如：
+bayes gear run task </p>
+<blockquote>
+<div><p>–env=pytorch-2.0 # 指定运行时环境
+–resource=t4 # 指定所使用的资源，通过命令 bayes gear resource 可以在 USAGE 字段看到命令
+–data openbayes/mnist/1:/input0 # 所要绑定的数据
+– python main.py # 入口命令</p>
+</div></blockquote>
+<p>通过 openbayes.yaml 可以为当前目录下运行任务提供默认的命令，例如我们定义一个内容如下的 openbayes.yaml:
+data_bindings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>data: openbayes/mnist/1
+path: /input0
+type: ro</p></li>
+</ul>
+</div></blockquote>
+<p>resource: t4
+env: pytorch-2.0
+command: “python main.py”
+只需在当前目录输入以下命令即可实现同样的任务执行效果：
+bayes gear run task
+openbayes.yaml 字段描述与规格
+openbayes.yaml 目前分为两部分：
+1. 基本类型的参数，包括 data_bindings resource env command parameters 五个
+2. 自动调参的参数，包含在 hyper_tuning 具体的内容在 自动调参 中介绍
+data_bindings
+指绑定的数据，支持「容器输出」以及「数据集」，最多同时绑定三个，分为两个部分：data 和 path
+data
+data 指绑定的数据源，如果绑定的数据源为一个「数据集的版本」其形式为：
+&lt;userid&gt;/&lt;dataset-name&gt;/&lt;dataset-version&gt;
+例如要绑定 OpenBayes 下名为 MNIST 的数据集第一个版本，其 data 字段为
+openbayes/mnist/1
+如果绑定的数据源为一个「容器的输出」，其形式为：
+&lt;userid&gt;/jobs/&lt;job-id&gt;/output
+如绑定 OpenBayes 下的 test-project 容器下的 jfaqJeLMcPM 的输出，其形式为：
+openbayes/jobs/jfaqJeLMcPM/output
+path
+另一部分为 path 指将数据源具体绑定到容器中的哪个目录，目前支持的目录如下：
+- /input0
+- /input1
+- /input2
+- /input3
+- /input4
+- /output
+数据绑定的两种配置方式
+在 openbayes.yaml 中，您可以使用以下两种方式之一来配置数据绑定：
+1. 使用 data_bindings（详细配置方式）：
+data_bindings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>data: openbayes/mnist/1     # 数据集的完整路径
+path: /input0               # 挂载到容器中的路径
+type: ro                    # 可选：ro（只读）或 rw（可读写）</p></li>
+<li><p>data: openbayes/jobs/jfaqJeLMcPM/output
+path: /output
+type: rw</p></li>
+</ul>
+</div></blockquote>
+<p>2. 使用 bindings（简写方式）：
+# 不写绑定权限默认为只读绑定
+bindings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>openbayes/eBIQp4yPMtU/1:/input0</p></li>
+<li><p>openbayes/jobs/jfaqJeLMcPM/output:/output</p></li>
+</ul>
+</div></blockquote>
+<p># 也可以指定读写绑定
+bindings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>username/data-cli-2/5:/input0:rw</p></li>
+<li><p>username/data-1/1:/output:rw</p></li>
+</ul>
+</div></blockquote>
+<p>信息
+需要注意的是 openbayes/eBIQp4yPMtU/1:/input0 中，openbayes 是公有数据集的专用名，如果你想使用你自己的数据集，需要将 openbayes 替换为你的用户名，eBIQp4yPMtU 是数据集 ID，1 是数据集的版本号；:/input0，是将数据集绑定到 input0 中。
+这两种方式是等价的，您可以根据需要选择使用。
+数据绑定权限控制说明
+- ro：只读权限，适用于参考数据集
+- rw：读写权限，适用于需要保存结果的输出目录
+resource
+指使用什么算力容器，通过命令 bayes gear resource 可以看到支持的算力类型。
+env
+指使用什么运行时环境，通过命令 bayes gear env 可以查看支持的运行时环境。
+command
+只有在创建「脚本执行」时需要，指任务执行时的入口命令。
+parameters
+在创建一个 task 或者 jupter 执行时，可以通过 parameters 传入一组 key / value 形式的参数，这个参数主要的作用有以下两点：
+1. 方便记录这次执行的重要参数，parameters 会在执行的界面中展示出来
+[图片]
+1. 将自定义的参数传递到执行中，同时支持两种形式：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>parameters 的内容会在执行初始化时生成一个文件 openbayes_params.json 方便程序通过该文件读取内部参数：</p></li>
+<li><p>parameters 的内容会以命令行参数的形式追加到入口命令后面，例如 openbayes.yaml 中有如下内容：</p></li>
+</ul>
+</div></blockquote>
+<p>…
+command: python main.py
+parameters:</p>
+<blockquote>
+<div><p>input: /input0
+epochs: 5</p>
+</div></blockquote>
+<p>…
+1. 那么真正的执行入口命令将会是
+python main.py –input=/input0 –epochs=5
+用命令行参数覆盖配置文件中的参数
+同时，也可以通过命令行覆盖相应的参数，例如对于上文中的 openbayes.yaml 通过以下命令可以覆盖入口执行的命令：
+bayes gear run task – sleep 360
+那么提交的命令内容将不再是 python main.py 而是 sleep 360。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="002.springcloud%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html" class="btn btn-neutral float-left" title="002.springcloud复习笔记" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="101.%E7%BD%91%E7%BB%9C.html" class="btn btn-neutral float-right" title="101.网络" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, achao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
