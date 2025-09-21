@@ -6,13 +6,13 @@
 *******************
 第一次运行需要安装一系列的包，这里以openbayes平台为例，直接运行一下脚本即可
 
-.. code-block::bash
-
+.. code-block::
+    
     $ bash run-first.sh
 
 然后再运行这个批量脚本即可获得输出，当然，这里的输入规范为jsonl格式，包含两个字段
 分别为提示词和图片路径，这里在系统层面对图片路径加以约束，将其放置在images文件夹下方便管理
 
-.. code-block::bash
+.. code-block::
 
     $ python run-more.py
