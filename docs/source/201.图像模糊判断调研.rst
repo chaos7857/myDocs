@@ -1,0 +1,65 @@
+201.图像模糊判断调研
+########################
+
+拉普拉斯
+************************
+拉普拉斯处理后，清晰图像的边缘像素值会有更大的波动（正负值差异大），因此方差更高；模糊图像的边缘被平滑，像素值波动小，方差更低
+
+.. code-block:: 
+
+    def laplas(image_path):
+        image = cv2.imread(image_path)
+        
+        if image is None:
+            raise ValueError(f"无法读取图片: {image_path}")
+        
+        # 计算拉普拉斯方差
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        laplacian_var = cv2.Laplacian(gray, cv2.CV_64F).var()
+
+        return laplacian_var
+
+傅里叶变换频域分析
+************************
+运动模糊会在图像的频域（傅里叶变换后的频谱）中产生明显的方向性暗条纹（因运动方向上的高频成分被抑制）。清晰图像的频谱分布均匀，而运动模糊图像的频谱会在垂直于运动方向上出现明显的能量衰减条纹。
+
+.. code-block:: 
+    
+    def detect_motion_blur_fft(image_path):
+        # 读取图像并转为灰度图
+        img = cv2.imread(image_path, 0)
+        f = np.fft.fft2(img)
+        fshift = np.fft.fftshift(f)  # 低频移至中心
+        magnitude_spectrum = 20 * np.log(np.abs(fshift))  # 取对数增强细节
+        
+        # 简单判断：计算频谱中是否存在明显的低能量条纹区域
+        # 实际应用中可通过阈值或霍夫变换检测条纹方向
+        mean_energy = np.mean(magnitude_spectrum)
+        # 运动模糊的频谱会有低于均值的连续区域
+        low_energy_ratio = np.sum(magnitude_spectrum < mean_energy * 0.5) / magnitude_spectrum.size
+        
+        return low_energy_ratio 
+
+
+豆包给的运动模糊检测
+************************
+.. code-block:: 
+
+    def detect_motion_blur_gradient(image_path):
+        img = cv2.imread(image_path, 0)
+        # 计算x和y方向的梯度
+        sobelx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)
+        sobely = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)
+        
+        # 计算梯度方向（角度）
+        angles = np.arctan2(sobely, sobelx) * (180 / np.pi) % 180  # 转为角度（0-180度）
+        
+        # 统计梯度方向直方图
+        hist, _ = np.histogram(angles, bins=18, range=(0, 180))  # 10度为一个区间
+        max_ratio = np.max(hist) / np.sum(hist)  # 最大方向占比
+        
+        return max_ratio  # 若某一方向占比超40%，判定为运动模糊
+
+
+
+

@@ -20,9 +20,23 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
-   1.sphinx语法复习
-   2.springcloud学习笔记
-   grounded+sam
+   001.sphinx语法复习
+   002.springcloud学习笔记
+   003.Bayes-cli
 
-   3D场景提示的具身模型设想
-   网络
+   101.网络
+   102.相机内外参
+   103.集群作业提交
+   104.curl&wget
+   105.KMP
+   106.前端小动画
+
+
+   201.图像模糊判断调研
+   202.grounded+sam
+
+
+   601.FastVLM
+
+   901.3D场景提示的具身模型设想
+   902.YOLO差别复盘
