@@ -141,7 +141,9 @@ Service接口
 
 
 
+MybatisPlus提供了@EnumValue注解来标记枚举属性
 
+@JsonValue注解标记JSON序列化时展示的字段
 
 
 
