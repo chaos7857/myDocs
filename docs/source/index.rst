@@ -37,6 +37,8 @@ documentation for details.
 
 
    601.FastVLM
+   602.groundingDino 
+
 
    701.conf-nginx
 

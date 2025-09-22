@@ -1,0 +1,81 @@
+602.groundingDino
+############################################
+
+
+批量运行
+******************************************
+
+.. code-block::
+
+    from pathlib import Path
+    import json
+    import cv2
+    from groundingdino.util.inference import load_model, load_image, predict, annotate
+    from tqdm import tqdm
+    import os
+    import torch
+    from torchvision.ops import box_convert
+
+
+    TASK_NAME = "0916data"
+
+    """输入描述"""
+    INPUT_JSONL = "C:\\Users\\chaochen38\\Desktop\\0916data\\input_dino.json"
+    IMAGE_BASE_PATH = "C:\\Users\\chaochen38\\Desktop\\0916data"
+
+    ################################################################################
+    WEIGHT_PATH = "groundingdino_swint_ogc.pth"
+    CONFIG_PATH = "groundingdino/config/GroundingDINO_SwinT_OGC.py"
+    OUTPUT_JSONL = f"output/{TASK_NAME}/result.jsonl"  # Output JSONL file path
+    ANNOTATION_DIR = f"output/{TASK_NAME}/annotationed"
+    BOX_THRESHOLD = 0.28
+    TEXT_THRESHOLD = 0.25
+    os.makedirs(ANNOTATION_DIR, exist_ok=True)
+    ################################################################################
+
+    # 加载模型
+    model = load_model(CONFIG_PATH, WEIGHT_PATH)
+    ################################################################################
+
+    # 读取输入数据
+    with open(INPUT_JSONL, 'r', encoding='utf-8') as fin:
+        lines = fin.readlines()
+
+    # 处理数据
+    with open(OUTPUT_JSONL, 'w', encoding='utf-8') as fout:
+        for i, line in enumerate(tqdm(lines, desc="total")):
+            try:
+                data = json.loads(line.strip())
+                image_path = str(Path(IMAGE_BASE_PATH) / data['img_path'])
+                prompt_text = data['extract_object_name']
+
+                image_source, image = load_image(image_path)
+                boxes, logits, phrases = predict(
+                    model=model,
+                    image=image,
+                    caption=prompt_text,
+                    box_threshold=BOX_THRESHOLD,
+                    text_threshold=TEXT_THRESHOLD
+                )
+
+                h, w, _ = image_source.shape
+                boxes_abs = boxes * torch.Tensor([w, h, w, h])
+                xyxy = box_convert(boxes=boxes_abs, in_fmt="cxcywh", out_fmt="xyxy").numpy().tolist()
+
+                # 保存预测结果
+                data['boxes'] = boxes.tolist() if hasattr(boxes, 'tolist') else boxes
+                data['boxes_abs'] = boxes_abs.numpy().tolist() if hasattr(boxes, 'numpy') else boxes_abs
+                data['xyxy'] = xyxy
+                data['logits'] = logits.tolist() if hasattr(logits, 'tolist') else logits
+                data['phrases'] = phrases
+                fout.write(json.dumps(data, ensure_ascii=False) + '\n')
+                fout.flush()
+
+                # 标注并保存图片
+                annotated_frame = annotate(image_source=image_source, boxes=boxes, logits=logits, phrases=phrases)
+                image_filename = Path(image_path).stem
+                out_path = ANNOTATION_DIR +"/"+ f"{image_filename}_annotated.jpg"
+                cv2.imwrite(str(out_path), annotated_frame)
+
+            except Exception as e:
+                print(f"Error on line {i}: {e}")
